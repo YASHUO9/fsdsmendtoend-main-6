@@ -1,0 +1,4 @@
+# Ignore Python virtual environments
+venv/
+env/
+D:\work\fsdsmendtoend-main-6\env/
