@@ -31,7 +31,7 @@ jobs:
           IMAGE_TAG=latest
 
           # Build the Docker image
-          docker build -t $ECR_REPOSITORY_URI:$IMAGE_TAG .
+          docker build -t $ECR_REPOSITORY_URI:$diamond .
 
       - name: Push Docker image to ECR
         run: |
