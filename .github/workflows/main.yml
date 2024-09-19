@@ -27,7 +27,7 @@ jobs:
       - name: Build Docker image
         run: |
           # Replace with your ECR repository URI
-          ECR_REPOSITORY_URI=123456789012.dkr.ecr.us-east-1.amazonaws.com/my-repo
+          ECR_REPOSITORY_URI=diamond
           IMAGE_TAG=latest
 
           # Build the Docker image
