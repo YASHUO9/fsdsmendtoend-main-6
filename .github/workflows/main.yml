@@ -3,7 +3,7 @@ name: Build and Push Docker Image to ECR
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build:
@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: check out code
+      - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Install utilities
         run: |
           sudo apt-get update
@@ -29,12 +30,11 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build ,tag and push image to Amazon ECR
-       env:
-       ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry}}
-        ECR_REPOSITORY: diamond
-        Image_Tag: latest
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: diamond
+          Image_Tag: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$Image_Tag .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$Image_Tag
-          
